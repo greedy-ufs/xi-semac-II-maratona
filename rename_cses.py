@@ -1,6 +1,6 @@
 from pathlib import Path
 
-QUESTION_CODE = "L"
+QUESTION_CODE = "E"
 
 FOLDER_INPUT_PATH = Path(__file__).parent / f"{QUESTION_CODE}/input"
 FOLDER_OUTPUT_PATH = Path(__file__).parent / f"{QUESTION_CODE}/output"
