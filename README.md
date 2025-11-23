@@ -1,14 +1,27 @@
 # II Maratona de Programação - SEMAC
 
+## Referências
+
 - [Boca docker](https://github.com/joaofazolo/boca-docker)
-- [Boca cheatsheet](https://github.com/gabrielrbernardi/BOCADocumentation)
-- [Boca placar](https://github.com/wuerges/maratona-animeitor-rust/)
+- [Boca Documentation](https://github.com/gabrielrbernardi/BOCADocumentation)
+- [(placar) Boca animeitor](https://github.com/wuerges/maratona-animeitor-rust/)
 - [Caderno de problemas](https://docs.google.com/document/d/1gvnBEyPKjA8JPNlUSRVkY3Bu0ruurBE6PxNpCtgwNQc/edit?tab=t.0)
+- [Configuração de scores](https://groups.google.com/g/boca-users/c/Ndvg6HzYZr8/m/px1G9XN5AQAJ)
+
+## Placar dos usuários
+
+Para garantir que a configuração do arquivo `score.sep` funciona, é preciso dar `chmod 644 score.sep` na pasta `/boca/src/private/` onde se encontra o mesmo, depois dentro do arquivo, copie e cole:
+
+```txt
+Global 1 # /^ccl/ /^admin/
+UFS 2000/2999/1 # /^team/ /^score/ /^admin/
+CCL 3000/3999/1 # /^ccl/ /^score/ /^admin/ 
+```
 
 ## Como criar o contest
 
 ### Máquina 1
-No caso foi utilizado dois droplets do DigitalOcean
+No caso foi utilizado dois droplets do DigitalOcean, ambos com 1gb.
 
 Instalar o boca
 
@@ -49,6 +62,9 @@ EOF
 ```
 
 ### Máquina 2
+
+Instalar docker
+
 ```bash
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -65,10 +81,18 @@ sudo apt-get update
 sudo apt install docker-ce
 sudo systemctl status docker
 
+
+```
+
+Dar git clone no projeto
+
+```bash
 sudo apt-get update
 git clone https://github.com/wuerges/maratona-animeitor-rust
 cd maratona-animeitor-rust
 ```
+
+Finalmente configurar o .env do mesmo
 
 ```env
 # Path to the file that contains the secrets used as credentials for the Reveleitor.
