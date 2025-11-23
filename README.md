@@ -65,7 +65,7 @@ EOF
 
 #### Passo 3: Aumentar Limite de Upload
 
-Editar `/etc/php/8.x/apache2/php.ini` e adicionar:
+Editar `/etc/php/8.x/apache2/php.ini` ou `/etc/php/8.3/fpm/php.ini` e adicionar:
 
 ```ini
 upload_max_filesize = 100M
@@ -79,7 +79,7 @@ O arquivo `score.sep` define as permissões de acesso ao placar. Para configurar
 
 1. Dar permissão de leitura/escrita:
    ```bash
-   chmod 644 /boca/src/private/score.sep
+   chmod 644 /var/www/boca/src/private/score.sep
    ```
 
 2. Adicionar as linhas de configuração:
