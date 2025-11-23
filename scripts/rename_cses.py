@@ -2,8 +2,9 @@ from pathlib import Path
 
 QUESTION_CODE = "E"
 
-FOLDER_INPUT_PATH = Path(__file__).parent / f"{QUESTION_CODE}/input"
-FOLDER_OUTPUT_PATH = Path(__file__).parent / f"{QUESTION_CODE}/output"
+PROJECT_ROOT = Path(__file__).parent.parent
+FOLDER_INPUT_PATH = PROJECT_ROOT / "questions" / QUESTION_CODE / "input"
+FOLDER_OUTPUT_PATH = PROJECT_ROOT / "questions" / QUESTION_CODE / "output"
 
 def rename_prefix(folder_path: Path)->None:
     for file_path in folder_path.iterdir():

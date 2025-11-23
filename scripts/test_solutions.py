@@ -141,16 +141,16 @@ def get_test_cases(problem_dir: Path) -> List[Tuple[Path, Path]]:
 def test_solution(problem_letter: str, workspace_dir: Path) -> dict:
     """
     Testa uma solução completa
-    
+
     Args:
         problem_letter: Letra do problema (A, B, C, etc)
         workspace_dir: Diretório raiz do workspace
-    
+
     Returns:
         Dicionário com resultados dos testes
     """
     solution_file = workspace_dir / 'solutions' / f'{problem_letter}.cpp'
-    problem_dir = workspace_dir / problem_letter
+    problem_dir = workspace_dir / 'questions' / problem_letter
     
     results = {
         'problem': problem_letter,
@@ -259,7 +259,7 @@ def print_summary(all_results: List[dict]):
 
 def main():
     """Função principal"""
-    workspace_dir = Path(__file__).parent
+    workspace_dir = Path(__file__).parent.parent
     solutions_dir = workspace_dir / 'solutions'
     
     print(f"{Colors.BOLD}{'='*60}{Colors.RESET}")
