@@ -9,15 +9,17 @@ QUESTIONS_DIR="$PROJECT_ROOT/questions"
 
 echo "Generating zip files for folders in: $QUESTIONS_DIR"
 
+# Change to questions directory to avoid full paths in zip
+cd "$QUESTIONS_DIR" || exit 1
+
 # Iterate through each single-letter directory (A-Z)
-for dir in "$QUESTIONS_DIR"/[A-Z]; do
+for dir in [A-Z]; do
     # Check if it's a directory
     if [ -d "$dir" ]; then
-        folder_name=$(basename "$dir")
-        zip_file="$PROJECT_ROOT/${folder_name}.zip"
+        zip_file="$PROJECT_ROOT/${dir}.zip"
 
         echo "Creating: $zip_file"
-        zip -r "$zip_file" "$dir" > /dev/null 2>&1
+        (cd "$dir" && zip -r "$zip_file" .) > /dev/null 2>&1
 
         if [ $? -eq 0 ]; then
             echo "✓ Successfully created $zip_file"
