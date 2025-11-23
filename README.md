@@ -1,40 +1,43 @@
 # II Maratona de Programação - SEMAC
 
-## Referências
+Sistema para gerenciar problemas e submissões da maratona de programação SEMAC utilizando BOCA.
 
-- [Boca docker](https://github.com/joaofazolo/boca-docker)
-- [Boca Documentation](https://github.com/gabrielrbernardi/BOCADocumentation)
-- [(placar) Boca animeitor](https://github.com/wuerges/maratona-animeitor-rust/)
-- [Caderno de problemas](https://docs.google.com/document/d/1gvnBEyPKjA8JPNlUSRVkY3Bu0ruurBE6PxNpCtgwNQc/edit?tab=t.0)
-- [Configuração de scores](https://groups.google.com/g/boca-users/c/Ndvg6HzYZr8/m/px1G9XN5AQAJ)
+## Índice
 
-## Placar dos usuários
+- [Visão Geral](#visão-geral)
+- [Arquitetura](#arquitetura)
+- [Instalação](#instalação)
+- [Configuração](#configuração)
+- [Referências](#referências)
 
-Para garantir que a configuração do arquivo `score.sep` funciona, é preciso dar `chmod 644 score.sep` na pasta `/boca/src/private/` onde se encontra o mesmo, depois dentro do arquivo, copie e cole:
+## Visão Geral
 
-```txt
-Global 1 # /^ccl/ /^admin/
-UFS 2000/2999/1 # /^team/ /^score/ /^admin/
-CCL 3000/3999/1 # /^ccl/ /^score/ /^admin/ 
-```
+Este projeto utiliza duas máquinas:
+- **Máquina 1**: Servidor BOCA (gerenciamento de contest)
+- **Máquina 2**: Animeitor (placar em tempo real)
 
-## Como criar o contest
+## Arquitetura
 
-### Máquina 1
-No caso foi utilizado dois droplets do DigitalOcean, ambos com 1gb.
+### Requisitos de Hardware
+- 2 droplets do DigitalOcean com 1GB RAM cada
+- Conexão de rede entre as máquinas
 
-Instalar o boca
+## Instalação
+
+### Máquina 1 - Servidor BOCA
+
+#### Passo 1: Instalar BOCA
 
 ```bash
-sudo apt-get update # Updating packages
-sudo add-apt-repository ppa:icpc-latam/maratona-linux # Adding the official package of BOCA
-sudo apt-get update # Updating packages, again
-sudo apt-get install boca -y # Installing BOCA
+sudo apt-get update
+sudo add-apt-repository ppa:icpc-latam/maratona-linux
+sudo apt-get update
+sudo apt-get install boca -y
 boca-createjail
 echo "allUsers 1/1/1000" > /var/www/boca/src/private/webcast.sep
 ```
 
-Finalizar a configuração do apache2
+#### Passo 2: Configurar Apache2
 
 ```bash
 sudo tee /etc/apache2/sites-available/000-boca.conf > /dev/null <<EOF
@@ -58,12 +61,37 @@ Alias /boca /var/www/boca/src
     Require all granted
 </Files>
 EOF
-
 ```
 
-### Máquina 2
+#### Passo 3: Aumentar Limite de Upload
 
-Instalar docker
+Editar `/etc/php/8.x/apache2/php.ini` e adicionar:
+
+```ini
+upload_max_filesize = 100M
+post_max_size = 100M
+max_file_uploads = 20
+```
+
+### Passo 4: Configuração de score
+
+O arquivo `score.sep` define as permissões de acesso ao placar. Para configurar:
+
+1. Dar permissão de leitura/escrita:
+   ```bash
+   chmod 644 /boca/src/private/score.sep
+   ```
+
+2. Adicionar as linhas de configuração:
+   ```txt
+   Global 1 # /^ccl/ /^admin/
+   UFS 2000/2999/1 # /^team/ /^score/ /^admin/
+   CCL 3000/3999/1 # /^ccl/ /^score/ /^admin/
+   ```
+
+### Máquina 2 - Placar (Animeitor)
+
+#### Passo 1: Instalar Docker
 
 ```bash
 sudo apt-get update
@@ -77,42 +105,42 @@ echo \
     sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get update
-
 sudo apt install docker-ce
 sudo systemctl status docker
-
-
 ```
 
-Dar git clone no projeto
+#### Passo 2: Clonar Repositório do Animeitor
 
 ```bash
-sudo apt-get update
 git clone https://github.com/wuerges/maratona-animeitor-rust
 cd maratona-animeitor-rust
 ```
 
-Finalmente configurar o .env do mesmo
+#### Passo 3: Configurar Arquivo `.env`
+
+Criar arquivo `.env` na raiz do projeto:
 
 ```env
-# Path to the file that contains the secrets used as credentials for the Reveleitor.
-# There are many examples in the ./config/ folder
+# Credenciais para acesso ao Reveleitor
 SECRET=./config/basic_secret.toml
 
-# Path to the file that describes the contest locations.
-# There are many examples in the ./config/ folder
+# Configuração de locais/sedes
 SEDES=./config/basic.toml
 
-# Boca URL that will be pooled to get the contest state.
-# It can be either a file or an URL.
+# URL do BOCA (substitua {IP_COMPUTADOR1} pelo IP da Máquina 1)
 BOCA_URL=http://{IP_COMPUTADOR1}/boca/admin/report/webcast.php?webcastcode=allUsers
 
-# Animeitor API prefix. This is set to `http://animeitor.naquadah.com.br` during the maratona.
-# `http://localhost:8000` is fine for local testing:
+# Prefixo da API do Animeitor
 PREFIX=http://localhost:8000
 
-# This is the public port. This is set to `80` during the SBC Maratona.
-# `8000` is fine for local testing:
+# Porta pública de acesso
 PUBLIC_PORT=80
-
 ```
+
+## Referências
+
+- [BOCA - Sistema de Administração de Contests](https://github.com/gabrielrbernardi/BOCADocumentation)
+- [BOCA Docker](https://github.com/joaofazolo/boca-docker)
+- [Animeitor (Placar em Tempo Real)](https://github.com/wuerges/maratona-animeitor-rust/)
+- [Caderno de Problemas da Maratona](https://docs.google.com/document/d/1gvnBEyPKjA8JPNlUSRVkY3Bu0ruurBE6PxNpCtgwNQc/edit?tab=t.0)
+- [Discussão sobre Configuração de Scores](https://groups.google.com/g/boca-users/c/Ndvg6HzYZr8/m/px1G9XN5AQAJ)
