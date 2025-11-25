@@ -12,20 +12,18 @@ using namespace std;
 const int MAXN = 1e5 + 10;
 
 int n, m;
-vector<int> adj[MAXN], dist(MAXN, -1), parent(MAXN, -1);
+vector<int> adj[MAXN], dist(MAXN, -1);
 bool vis[MAXN];
  
 void bfs(int s) {
     queue<int> q; 
     q.push(s); vis[s] = true; 
     dist[s] = 0;
-    parent[s] = -1;
     while (!q.empty()) {
         int v = q.front(); q.pop();
         for (auto u : adj[v]) if (!vis[u]) {
             dist[u] = dist[v] + 1;
             q.push(u); vis[u] = true;
-            parent[u] = v;
         }
     }
 }
@@ -44,14 +42,5 @@ signed main(){
         cout << "MAUS CAMINHOS!" << endl;
     } else {
         cout << (dist[n-1] + 1) << endl;
-        vector<int> path;
-        int v = n-1;
-        for (int i = 0; i <= dist[n-1]; i++) {
-            path.pb(v);
-            v = parent[v];
-        }
-        reverse(all(path));
-        for (auto x : path) cout << x+1 << " ";
-        cout << endl;
     }
 }

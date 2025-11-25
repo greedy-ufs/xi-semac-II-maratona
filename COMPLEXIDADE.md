@@ -16,6 +16,6 @@ Chutei alguns valores pela minha intuição. Não adicionei esses valores da tab
 |    H     |    O(M.N)    |  1.0  |  1.0  |   1.0  | 
 |    I     |     O(N)     |  2.0  |  2.0  |   2.0  | 
 |    J     |     O(N)     |  1.0  |  1.0  |   1.0  | 
-|    K     |  O(N*|str|)  |  1.0  |  1.0  |   1.0  | -> É amortecido 
+|    K     |  O(N*|str|)  |  1.0  |  1.0  |   1.0  |
 |    L     |    O(N.X)    |  3.0  |  3.0  |   3.0  | 
 |    M     |  O(Nlog(T))  |  2.0  |  2.0  |   2.0  | 
