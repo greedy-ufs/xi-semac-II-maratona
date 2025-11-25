@@ -19,8 +19,9 @@ Este projeto utiliza duas máquinas:
 ## Arquitetura
 
 ### Requisitos de Hardware
-- 2 droplets do DigitalOcean com 1GB RAM cada
-- Conexão de rede entre as máquinas
+- (servidor boca) droplet com 2gb e 1 cpu 
+- (Animeitor) droplet com 1gb e 1 cpu
+
 
 ## Instalação
 
@@ -65,13 +66,17 @@ EOF
 
 #### Passo 3: Aumentar Limite de Upload
 
-Editar `/etc/php/8.x/apache2/php.ini` ou `/etc/php/8.3/fpm/php.ini` e adicionar:
+Editar os valores em `/etc/php/8.x/apache2/php.ini` ou `/etc/php/8.3/fpm/php.ini`:
 
 ```ini
+...
 upload_max_filesize = 100M
 post_max_size = 100M
 max_file_uploads = 20
+...
 ```
+
+Depois é preciso reiniciar o sistema para que tome efeito a alteração
 
 ### Passo 4: Configuração de score
 
