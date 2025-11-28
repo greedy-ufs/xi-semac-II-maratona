@@ -77,6 +77,10 @@ max_file_uploads = 20
 ```
 
 Depois é preciso reiniciar o sistema para que tome efeito a alteração
+```
+sudo systemctl restart php8.3-fpm
+sudo systemctl restart apache2
+```
 
 ### Passo 4: Configuração de score
 
