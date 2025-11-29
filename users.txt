@@ -1,63 +1,106 @@
 [user]
-usernumber=2000
+usernumber=1000
 userenabled=t
-username=team1
+username=alguem
 userpassword=boca
 usertype=team
 usersitenumber=1
+userfullname=Alguém não foi chamado? Alguem não foi chamado?
 
-usernumber=2001
+usernumber=1001
 userenabled=t
-username=team2
+username=lontras
 userpassword=boca
 usertype=team
 usersitenumber=1
+userfullname=Lontras Listradas Loroteiras
 
-usernumber=2002
+usernumber=1002
 userenabled=t
-username=team3
+username=code
 userpassword=boca
 usertype=team
 usersitenumber=1
+userfullname=Code Busters
 
-usernumber=2003
+usernumber=1003
 userenabled=t
-username=team4
+username=erro
 userpassword=boca
 usertype=team
 usersitenumber=1
+userfullname=Erro de Segmentação
 
-usernumber=2004
-userenabled=t
-username=team5
-userpassword=boca
-usertype=team
-usersitenumber=1
 
-usernumber=3000
+usernumber=1004
 userenabled=t
-username=ccl1
+username=chi
 userpassword=boca
 usertype=team
 usersitenumber=1
+userfullname=ち++ (chi plus plus)
 
-usernumber=3001
+usernumber=1005
 userenabled=t
-username=ccl2
+username=tribolados
 userpassword=boca
-usersitenumber=1
 usertype=team
+usersitenumber=1
+userfullname=TRIBOLADOS
 
-usernumber=3002
+usernumber=1006
 userenabled=t
-username=ccl3
+username=gambiarra
 userpassword=boca
 usersitenumber=1
 usertype=team
+userfullname=Na nossa área não existe gambiarra, apenas engenharia alternativa de alta complexidade lógica
 
-usernumber=3004
+usernumber=1007
 userenabled=t
-username=ccl5
+username=imperio
 userpassword=boca
 usersitenumber=1
 usertype=team
+userfullname=Sacro Império Sergipano
+
+usernumber=1008
+userenabled=t
+username=balao
+userpassword=boca
+usersitenumber=1
+usertype=team
+userfullname=Balão de dois com suco de melancia
+
+usernumber=1009
+userenabled=t
+username=abstract
+userpassword=boca
+usersitenumber=1
+usertype=team
+userfullname=Abstract Overload
+
+
+usernumber=1010
+userenabled=t
+username=carai
+userpassword=boca
+usersitenumber=1
+usertype=team
+userfullname=CaRai, Nay
+
+usernumber=1011
+userenabled=t
+username=tryhard
+userpassword=boca
+usersitenumber=1
+usertype=team
+userfullname=tryhard
+
+usernumber=1012
+userenabled=t
+username=louco
+userpassword=boca
+usersitenumber=1
+usertype=team
+userfullname=C eh louco nao compensa
