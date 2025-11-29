@@ -1,0 +1,64 @@
+/* A – #000080 */
+.balao_A {
+    filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(7475%) hue-rotate(240deg) brightness(87%) contrast(125%);
+}
+
+/* B – #0000FF */
+.balao_B {
+    filter: brightness(0) saturate(100%) invert(13%) sepia(91%) saturate(6400%) hue-rotate(242deg) brightness(102%) contrast(102%);
+}
+
+/* C – #FFA500 (laranja) */
+.balao_C {
+    filter: brightness(0) saturate(100%) invert(73%) sepia(51%) saturate(5630%) hue-rotate(358deg) brightness(102%) contrast(103%);
+}
+
+/* D – #D3AF37 (ouro) */
+.balao_D {
+    filter: brightness(0) saturate(100%) invert(84%) sepia(43%) saturate(1470%) hue-rotate(356deg) brightness(97%) contrast(95%);
+}
+
+/* E – #006400 (verde escuro) */
+.balao_E {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(90%) saturate(2471%) hue-rotate(106deg) brightness(93%) contrast(112%);
+}
+
+/* F – #FF0000 (vermelho) */
+.balao_F {
+    filter: brightness(0) saturate(100%) invert(29%) sepia(96%) saturate(7470%) hue-rotate(355deg) brightness(99%) contrast(99%);
+}
+
+/* G – #FFFF00 (amarelo) */
+.balao_G {
+    filter: brightness(0) saturate(100%) invert(89%) sepia(76%) saturate(7489%) hue-rotate(1deg) brightness(101%) contrast(103%);
+}
+
+/* H – #FFC0CB (rosa) */
+.balao_H {
+    filter: brightness(0) saturate(100%) invert(87%) sepia(33%) saturate(1780%) hue-rotate(294deg) brightness(107%) contrast(94%);
+}
+
+/* I – #ADD8E6 (azul claro) */
+.balao_I {
+    filter: brightness(0) saturate(100%) invert(86%) sepia(9%) saturate(1367%) hue-rotate(176deg) brightness(95%) contrast(93%);
+}
+
+/* J – #000000 (preto) */
+.balao_J {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(2%) saturate(7500%) hue-rotate(200deg) brightness(40%) contrast(100%);
+}
+
+/* K – #90EE90 (verde claro) */
+.balao_K {
+    filter: brightness(0) saturate(100%) invert(88%) sepia(16%) saturate(763%) hue-rotate(71deg) brightness(93%) contrast(94%);
+}
+
+/* L – #800080 (roxo) */
+.balao_L {
+    filter: brightness(0) saturate(100%) invert(17%) sepia(88%) saturate(3035%) hue-rotate(291deg) brightness(82%) contrast(133%);
+}
+
+/* M – #808080 (cinza) */
+.balao_M {
+    filter: brightness(0) saturate(100%) invert(52%) sepia(6%) saturate(0%) hue-rotate(161deg) brightness(96%) contrast(88%);
+}

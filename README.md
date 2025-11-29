@@ -146,9 +146,15 @@ PREFIX=http://localhost:8000
 PUBLIC_PORT=80
 ```
 
+Colocar a mesma configuração de `maratona-animeitor-rust/client-v2/static/user-styles.css` com o mesmo arquivo em user-styles.css, ao final, subir o docker
+
+```bash
+docker compose up -d
+```
+
 ## Referências
 
-- [BOCA - Sistema de Administração de Contests](https://github.com/gabrielrbernardi/BOCADocumentation)
+- [BOCA Documentation](https://github.com/gabrielrbernardi/BOCADocumentation)
 - [BOCA Docker](https://github.com/joaofazolo/boca-docker)
 - [Animeitor (Placar em Tempo Real)](https://github.com/wuerges/maratona-animeitor-rust/)
 - [Caderno de Problemas da Maratona](https://docs.google.com/document/d/1gvnBEyPKjA8JPNlUSRVkY3Bu0ruurBE6PxNpCtgwNQc/edit?tab=t.0)
