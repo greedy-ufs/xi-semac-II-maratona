@@ -2,6 +2,8 @@
 
 Sistema para gerenciar problemas e submissões da maratona de programação SEMAC utilizando BOCA.
 
+Se você quiser ver as sbumissões, fizemos o backup dos dados, você ver como acessar na pasta [backup](backup/readme.md)
+
 ## Índice
 
 - [Visão Geral](#visão-geral)

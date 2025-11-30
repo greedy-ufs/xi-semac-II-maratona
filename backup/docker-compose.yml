@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: bocadb-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: bocadb          # nome do banco que vai ser criado
+      POSTGRES_USER: bocauser      # mesmo usuário do seu dump
+      POSTGRES_PASSWORD: IYaFI3bEUb2Tg3uMCd5q  # mesma senha que você usou
+      TZ: America/Maceio
+    ports:
+      - "5432:5432"
+    volumes:
+      # dados do postgres (persistência)
+      - pgdata:/var/lib/postgresql/data
+      # seu dump .sql.gz será executado no primeiro start
+      - ./bocadb_20251130_112441.sql.gz:/docker-entrypoint-initdb.d/bocadb.sql.gz:ro
+
+volumes:
+  pgdata:
+
